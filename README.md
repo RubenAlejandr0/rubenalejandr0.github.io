@@ -22,13 +22,20 @@
         }
 
         .profile-img{
-            width:180px;
-            height:180px;
-            border-radius:50%;
-            object-fit:cover;
-            border:4px solid #38bdf8;
-            box-shadow:0px 10px 25px rgba(0,0,0,0.4);
-        }
+    width:180px;
+    height:180px;
+    border-radius:50%;
+
+    object-fit:cover;      /* CLAVE: rellena el círculo */
+    object-position:center; /* centra la cara */
+
+    display:block;
+    margin:auto;
+
+    border:4px solid #38bdf8;
+    box-shadow:0px 10px 25px rgba(0,0,0,0.4);
+}
+
 
         h1{
             margin-top:20px;
