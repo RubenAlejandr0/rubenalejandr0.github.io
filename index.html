@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rubén Alejandro | Android Developer</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<title>Rubén Alejandro</title>
 
 <style>
 
@@ -18,92 +18,103 @@ box-sizing:border-box;
 
 body{
 font-family:'Inter', sans-serif;
-background:#0b1120;
 color:white;
+
+/* 🔥 TU FONDO */
+background:url("fondo.jpg") no-repeat center center fixed;
+background-size:cover;
+}
+
+/* capa oscura para que el texto siempre se lea */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(10,15,25,.65);
+backdrop-filter: blur(3px);
+z-index:-1;
+}
+
+/* CONTENEDOR */
+
+.wrapper{
+max-width:1000px;
+margin:auto;
+padding:80px 20px;
+}
+
+/* TARJETAS FLOTANTES */
+
+.glass{
+background:rgba(255,255,255,.06);
+backdrop-filter: blur(12px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+padding:50px;
+margin-bottom:40px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.5);
 }
 
 /* HERO */
 
 .hero{
-height:50vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
 text-align:center;
-padding:20px;
-
-background:
-radial-gradient(circle at 20% 30%, #1e3a8a, transparent 40%),
-radial-gradient(circle at 80% 70%, #2563eb, transparent 40%),
-#0b1120;
 }
 
 .profile{
-width:170px;
-height:170px;
+width:160px;
+height:160px;
 border-radius:50%;
 object-fit:cover;
-border:3px solid #3b82f6;
-margin-bottom:25px;
+border:3px solid rgba(255,255,255,.25);
+margin-bottom:20px;
 }
 
 h1{
-font-size:3rem;
-font-weight:700;
+font-size:2.8rem;
 letter-spacing:-1px;
 }
 
 .tag{
+color:#cbd5e1;
 margin-top:10px;
-font-size:1.2rem;
-color:#94a3b8;
+}
+
+/* TEXTO */
+
+p{
+line-height:1.8;
+color:#e2e8f0;
 }
 
 /* BOTON */
 
 .btn{
-margin-top:35px;
-padding:14px 32px;
+display:inline-block;
+margin-top:25px;
+padding:14px 30px;
 border-radius:12px;
-background:#3b82f6;
-color:white;
 text-decoration:none;
+color:white;
 font-weight:500;
+
+background:linear-gradient(135deg,#3b82f6,#2563eb);
 transition:.25s;
 }
 
 .btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 30px rgba(59,130,246,.4);
-}
-
-/* SECCION */
-
-.section{
-max-width:900px;
-margin:auto;
-padding:100px 25px;
-text-align:center;
-}
-
-.section h2{
-font-size:2rem;
-margin-bottom:25px;
-}
-
-.section p{
-color:#cbd5e1;
-font-size:1.1rem;
-line-height:1.7;
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(37,99,235,.5);
 }
 
 /* FOOTER */
 
 footer{
 text-align:center;
-padding:40px;
-color:#64748b;
+opacity:.7;
+margin-top:40px;
 font-size:.9rem;
 }
 
@@ -112,16 +123,17 @@ font-size:.9rem;
 
 <body>
 
-<!-- HERO -->
+<div class="wrapper">
 
-<section class="hero">
+<!-- HERO -->
+<div class="glass hero">
 
 <img src="foto.png" class="profile">
 
 <h1>Rubén Alejandro</h1>
 
 <p class="tag">
-Android Developer • Creador de aplicaciones reales
+Android Developer • Construyendo aplicaciones reales
 </p>
 
 <a href="https://play.google.com/store/apps/details?id=com.ruben.rifavirtual"
@@ -129,29 +141,31 @@ class="btn" target="_blank">
 Ver mi app 🚀
 </a>
 
-</section>
+</div>
 
 
 <!-- SOBRE MI -->
-
-<section class="section">
+<div class="glass">
 
 <h2>¿Qué hago?</h2>
 
+<br>
+
 <p>
-Desarrollo aplicaciones Android enfocadas en resolver necesidades reales,
-combinando tecnología, diseño y simplicidad para crear productos confiables.
+Desarrollo aplicaciones Android enfocadas en resolver problemas reales,
+priorizando la experiencia de usuario, el rendimiento y la simplicidad.
 
 Soy creador de <strong>Rifa Virtual</strong>, una aplicación publicada en Google Play
-que permite gestionar sorteos de forma moderna y profesional.
+que permite gestionar sorteos de manera moderna, rápida y confiable.
 </p>
 
-</section>
-
+</div>
 
 <footer>
-© 2026 Rubén Alejandro — Building real apps.
+© 2026 — Rubén Alejandro
 </footer>
+
+</div>
 
 </body>
 </html>
