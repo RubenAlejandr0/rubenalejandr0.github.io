@@ -86,7 +86,7 @@
     <div class="container">
 
         <!-- FOTO -->
-        <img src="tu-foto.jpg" class="profile-img">
+        <img src="foto.png" class="profile-img">
 
         <!-- NOMBRE -->
         <h1>Rubén Alejandro</h1>
