@@ -20,18 +20,18 @@ body{
 font-family:'Inter', sans-serif;
 color:white;
 
-/* 🔥 TU FONDO */
-background:url("fondo.jpg") no-repeat center center fixed;
+/* 🔥 FONDO OPTIMIZADO */
+background:url("images/fondo.webp") no-repeat center center fixed;
 background-size:cover;
 }
 
-/* capa oscura para que el texto siempre se lea */
+/* OVERLAY PRO */
 body::before{
 content:"";
 position:fixed;
 inset:0;
-background:rgba(10,15,25,.65);
-backdrop-filter: blur(3px);
+background:rgba(8,12,20,.72);
+backdrop-filter: blur(4px);
 z-index:-1;
 }
 
@@ -43,18 +43,18 @@ margin:auto;
 padding:80px 20px;
 }
 
-/* TARJETAS FLOTANTES */
+/* TARJETAS FLOTANTES PRO */
 
 .glass{
-background:rgba(255,255,255,.06);
-backdrop-filter: blur(12px);
-border:1px solid rgba(255,255,255,.08);
-border-radius:22px;
+background:rgba(255,255,255,.05);
+backdrop-filter: blur(14px);
+border:1px solid rgba(255,255,255,.06);
+border-radius:24px;
 padding:50px;
 margin-bottom:40px;
 
 box-shadow:
-0 10px 40px rgba(0,0,0,.5);
+0 20px 60px rgba(0,0,0,.6);
 }
 
 /* HERO */
@@ -68,54 +68,58 @@ width:160px;
 height:160px;
 border-radius:50%;
 object-fit:cover;
-border:3px solid rgba(255,255,255,.25);
+border:3px solid rgba(255,255,255,.2);
 margin-bottom:20px;
 }
 
+/* TIPOGRAFÍA */
+
 h1{
-font-size:2.8rem;
+font-size:2.9rem;
 letter-spacing:-1px;
+font-weight:700;
 }
 
 .tag{
 color:#cbd5e1;
 margin-top:10px;
+font-weight:300;
 }
 
 /* TEXTO */
 
 p{
-line-height:1.8;
+line-height:1.9;
 color:#e2e8f0;
 }
 
-/* BOTON */
+/* BOTON PRO */
 
 .btn{
 display:inline-block;
 margin-top:25px;
-padding:14px 30px;
-border-radius:12px;
+padding:14px 34px;
+border-radius:14px;
 text-decoration:none;
 color:white;
 font-weight:500;
 
-background:linear-gradient(135deg,#3b82f6,#2563eb);
-transition:.25s;
+background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 30px rgba(37,99,235,.5);
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(37,99,235,.6);
 }
 
 /* FOOTER */
 
 footer{
 text-align:center;
-opacity:.7;
+opacity:.6;
 margin-top:40px;
-font-size:.9rem;
+font-size:.85rem;
 }
 
 </style>
@@ -128,7 +132,7 @@ font-size:.9rem;
 <!-- HERO -->
 <div class="glass hero">
 
-<img src="foto.png" class="profile">
+<img src="images/foto.png" class="profile">
 
 <h1>Rubén Alejandro</h1>
 
