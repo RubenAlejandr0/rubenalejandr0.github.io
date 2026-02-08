@@ -156,6 +156,62 @@ transition:.25s;
 text-decoration:underline;
 opacity:1;
 }
+
+/* Permite posicionar el triángulo dentro de la tarjeta */
+.hero{
+position:relative;
+}
+
+/* TRIÁNGULO */
+.warning-triangle{
+position:absolute;
+top:-12px;
+right:-12px;
+width:0;
+height:0;
+border-left:90px solid transparent;
+border-bottom:90px solid #ffd93b;
+cursor:pointer;
+transition:.25s;
+filter:drop-shadow(0 8px 12px rgba(0,0,0,.5));
+}
+
+/* EFECTO HOVER */
+.warning-triangle:hover{
+transform:translateY(-6px);
+filter:drop-shadow(0 18px 25px rgba(0,0,0,.7));
+}
+
+/* TEXTO DENTRO DEL TRIÁNGULO */
+.warning-text{
+position:absolute;
+top:18px;
+right:-78px;
+width:120px;
+font-size:.65rem;
+font-weight:700;
+color:#222;
+transform:rotate(45deg);
+pointer-events:none;
+text-align:center;
+}
+
+/* SERPIENTE */
+.snake{
+position:fixed;
+width:18px;
+height:18px;
+border-radius:50%;
+background:lime;
+pointer-events:none;
+z-index:9999;
+box-shadow:
+0 0 10px lime,
+0 0 20px lime;
+opacity:0;
+transition:opacity .3s;
+}
+
   
 </style>
 </head>
@@ -166,6 +222,11 @@ opacity:1;
 
 <!-- HERO -->
 <div class="glass hero">
+<div class="warning-triangle" onmouseenter="startSnake()">
+<span class="warning-text">
+No pases el mouse por aquí
+</span>
+</div>
 
 <img src="images/foto.jpg" class="profile">
 
@@ -247,6 +308,46 @@ No se trata solo de programar… se trata de construir algo que valga la pena us
 90controlgame@gmail.com
 </a>
 </footer>
+<script>
+
+let snakeInterval;
+let snakeElement;
+
+function startSnake(){
+
+// evita múltiples serpientes
+if(snakeElement) return;
+
+snakeElement = document.createElement("div");
+snakeElement.classList.add("snake");
+document.body.appendChild(snakeElement);
+
+snakeElement.style.opacity = "1";
+
+document.addEventListener("mousemove", moveSnake);
+
+snakeInterval = setTimeout(()=>{
+
+snakeElement.style.opacity="0";
+
+setTimeout(()=>{
+document.removeEventListener("mousemove", moveSnake);
+snakeElement.remove();
+snakeElement=null;
+},300);
+
+},5000);
+
+}
+
+function moveSnake(e){
+
+snakeElement.style.left = e.clientX + "px";
+snakeElement.style.top = e.clientY + "px";
+
+}
+
+</script>
 
 </body>
 </html>
