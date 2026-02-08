@@ -157,61 +157,50 @@ text-decoration:underline;
 opacity:1;
 }
 
-/* Permite posicionar el triángulo dentro de la tarjeta */
+/* HERO necesita position relative */
 .hero{
 position:relative;
 }
 
-/* TRIÁNGULO */
+/* TRIÁNGULO REAL */
 .warning-triangle{
 position:absolute;
-top:-12px;
-right:-12px;
-width:0;
-height:0;
-border-left:90px solid transparent;
-border-bottom:90px solid #ffd93b;
+top:-35px;
+right:-35px;
+width:130px;
+height:130px;
+background:#ffd93b;
+clip-path:polygon(50% 0%, 0% 100%, 100% 100%);
+border:10px solid #e03131;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-weight:800;
+font-size:.7rem;
+color:#222;
 cursor:pointer;
 transition:.25s;
-filter:drop-shadow(0 8px 12px rgba(0,0,0,.5));
+box-shadow:0 10px 25px rgba(0,0,0,.5);
 }
 
-/* EFECTO HOVER */
+/* HOVER PRO */
 .warning-triangle:hover{
-transform:translateY(-6px);
-filter:drop-shadow(0 18px 25px rgba(0,0,0,.7));
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 25px 45px rgba(0,0,0,.8);
 }
 
-/* TEXTO DENTRO DEL TRIÁNGULO */
-.warning-text{
-position:absolute;
-top:18px;
-right:-78px;
-width:120px;
-font-size:.65rem;
-font-weight:700;
-color:#222;
-transform:rotate(45deg);
-pointer-events:none;
-text-align:center;
-}
-
-/* SERPIENTE */
-.snake{
+/* SEGMENTOS DE LA SERPIENTE */
+.snake-segment{
 position:fixed;
-width:18px;
-height:18px;
+width:12px;
+height:12px;
 border-radius:50%;
 background:lime;
 pointer-events:none;
 z-index:9999;
-box-shadow:
-0 0 10px lime,
-0 0 20px lime;
-opacity:0;
-transition:opacity .3s;
+box-shadow:0 0 8px lime;
 }
-
   
 </style>
 </head>
@@ -223,9 +212,7 @@ transition:opacity .3s;
 <!-- HERO -->
 <div class="glass hero">
 <div class="warning-triangle" onmouseenter="startSnake()">
-<span class="warning-text">
 No pases el mouse por aquí
-</span>
 </div>
 
 <img src="images/foto.jpg" class="profile">
@@ -308,43 +295,44 @@ No se trata solo de programar… se trata de construir algo que valga la pena us
 90controlgame@gmail.com
 </a>
 </footer>
+
 <script>
 
-let snakeInterval;
-let snakeElement;
+let snake = [];
+let snakeActive = false;
 
 function startSnake(){
 
-// evita múltiples serpientes
-if(snakeElement) return;
+if(snakeActive) return;
+snakeActive = true;
 
-snakeElement = document.createElement("div");
-snakeElement.classList.add("snake");
-document.body.appendChild(snakeElement);
-
-snakeElement.style.opacity = "1";
-
-document.addEventListener("mousemove", moveSnake);
-
-snakeInterval = setTimeout(()=>{
-
-snakeElement.style.opacity="0";
+document.addEventListener("mousemove", createSnake);
 
 setTimeout(()=>{
-document.removeEventListener("mousemove", moveSnake);
-snakeElement.remove();
-snakeElement=null;
-},300);
-
+snake.forEach(seg => seg.remove());
+snake = [];
+document.removeEventListener("mousemove", createSnake);
+snakeActive = false;
 },5000);
 
 }
 
-function moveSnake(e){
+function createSnake(e){
 
-snakeElement.style.left = e.clientX + "px";
-snakeElement.style.top = e.clientY + "px";
+const segment = document.createElement("div");
+segment.classList.add("snake-segment");
 
+segment.style.left = e.clientX + "px";
+segment.style.top = e.clientY + "px";
+
+document.body.appendChild(segment);
+snake.push(segment);
+
+/* elimina segmentos antiguos para dar efecto cola */
+if(snake.length > 25){
+snake[0].remove();
+snake.shift();
+}
 }
 
 </script>
