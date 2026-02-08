@@ -165,23 +165,18 @@ position:relative;
 /* TRIÁNGULO REAL */
 .warning-triangle{
 position:absolute;
-top:-35px;
-right:-35px;
-width:130px;
-height:130px;
-background:#ffd93b;
-clip-path:polygon(50% 0%, 0% 100%, 100% 100%);
-border:10px solid #e03131;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-weight:800;
-font-size:.7rem;
-color:#222;
+top:-45px;
+right:-45px;
+width:150px;
 cursor:pointer;
 transition:.25s;
-box-shadow:0 10px 25px rgba(0,0,0,.5);
+filter:drop-shadow(0 12px 20px rgba(0,0,0,.6));
+}
+
+/* efecto premium */
+.warning-triangle:hover{
+transform:translateY(-8px) scale(1.05);
+filter:drop-shadow(0 28px 40px rgba(0,0,0,.85));
 }
 
 /* HOVER PRO */
@@ -211,9 +206,13 @@ box-shadow:0 0 8px lime;
 
 <!-- HERO -->
 <div class="glass hero">
-<div class="warning-triangle" onmouseenter="startSnake()">
-No pases el mouse por aquí
-</div>
+
+<img 
+src="images/triangulo.png" 
+class="warning-triangle"
+onmouseenter="startSnake()"
+onclick="startSnake()"
+alt="No pases el mouse por aquí">
 
 <img src="images/foto.jpg" class="profile">
 
