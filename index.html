@@ -168,6 +168,10 @@ position:absolute;
 top:-45px;
 right:-45px;
 width:150px;
+
+clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+overflow:hidden;
+
 cursor:pointer;
 transition:.25s;
 filter:drop-shadow(0 12px 20px rgba(0,0,0,.6));
@@ -178,11 +182,11 @@ filter:drop-shadow(0 12px 20px rgba(0,0,0,.6));
 transform:translateY(-8px) scale(1.05);
 filter:drop-shadow(0 28px 40px rgba(0,0,0,.85));
 }
-
-/* HOVER PRO */
-.warning-triangle:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 25px 45px rgba(0,0,0,.8);
+  
+/* Evita que alguien arrastre el triángulo */
+  .warning-triangle{
+user-select:none;
+-webkit-user-drag:none;
 }
 
 /* SEGMENTOS DE LA SERPIENTE */
